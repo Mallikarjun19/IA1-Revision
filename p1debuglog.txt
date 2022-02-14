@@ -1,0 +1,100 @@
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7fc: file p1final.c, line 16.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1final.c:16
+16  {
+(gdb) n
+18    input(&x,&y);
+(gdb) s
+input (a=0x7ffd42e4b56c, b=0x7ffd42e4b570) at p1final.c:4
+4     printf("enter two numbers\n");
+(gdb) n
+enter two numbers
+5     scanf("%d%d",a,b);
+(gdb) n
+5
+ 
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7fc: file p1final.c, line 16.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1final.c:16
+16  {
+(gdb) n
+18    input(&x,&y);
+(gdb) s
+input (a=0x7ffffd2300cc, b=0x7ffffd2300d0) at p1final.c:4
+4     printf("enter two numbers\n");
+(gdb) n
+enter two numbers
+5     scanf("%d%d",a,b);
+(gdb) n
+5
+4
+6   }
+(gdb) n
+main () at p1final.c:19
+19    add(x,y,&z);
+(gdb) s
+add (a=5, b=4, sum=0x7ffffd2300d4) at p1final.c:9
+9     *sum=a+b;
+(gdb) n
+10  }
+(gdb) n
+main () at p1final.c:20
+20    output(x,y,z);
+(gdb) s
+output (a=5, b=4, sum=9) at p1final.c:13
+13    printf("sum of %d + %d is %d",a,b,sum);
+(gdb) n
+14  }
+(gdb) n
+main () at p1final.c:21
+21  }(gdb) n
+__libc_start_main (main=0x5572512007f4 <main>, argc=1, argv=0x7ffffd2301c8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffffd2301b8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) c
+Continuing.
+sum of 5 + 4 is 9[Inferior 1 (process 165) exited normally]
+(gdb) 
