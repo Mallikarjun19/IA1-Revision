@@ -1,0 +1,67 @@
+ gcc -g p6final.c
+ ./a.out
+enter thr first string
+hello
+enter the second string
+world
+world is greater than hello 
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8e3: file p6final.c, line 25.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6final.c:25
+25  {
+(gdb) n
+27    input_two_string(s1,s2);
+(gdb) s
+input_two_string (s1=0x7ffd41fea170 "\a\327pH-\177", 
+    s2=0x7ffd41fea1e0 "") at p6final.c:4
+4     printf("enter thr first string\n");
+(gdb) n
+enter thr first string
+5     scanf("%s",s1);
+(gdb) n
+hello
+6     printf("enter the second string\n");
+(gdb) n
+enter the second string
+7     scanf("%s",s2);
+(gdb) n
+world
+8   }
+(gdb) n
+main () at p6final.c:28
+28    int r=strcmp(s1,s2);
+(gdb) n
+29    output(s1,s2,r);
+(gdb) 
+30    return 0;
+(gdb) n
+31  }(gdb) n
+__libc_start_main (main=0x55ef7e6008d8 <main>, argc=1, 
+    argv=0x7ffd41fea338, init=<optimized out>, fini=<optimized out>, 
+    rtld_fini=<optimized out>, stack_end=0x7ffd41fea328)
+    at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) c
+Continuing.
+world is greater than hello[Inferior 1 (process 85) exited normally]
+(gdb) 
